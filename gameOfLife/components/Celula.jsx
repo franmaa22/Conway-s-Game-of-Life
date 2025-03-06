@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 
-export default function Celula(){
-    const [viva, setViva] = useState(false);
-
+export default function Celula({viva, onPress}){
     return (
         <View>
-            <Pressable onPress={() => {setViva(!viva)}} style={[styles.cell, viva ? {backgroundColor:"black"}:{backgroundColor:"white"}]}></Pressable>
+            <Pressable onPress={onPress} style={[styles.cell, viva ? {backgroundColor:"black"}:{backgroundColor:"white"}]}></Pressable>
         </View> 
     )
 }
