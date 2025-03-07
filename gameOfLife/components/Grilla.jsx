@@ -22,12 +22,13 @@ export default function Grilla({jugar}){
     
         for (let vi = -1; vi <= 1; vi++) {
             for (let vj = -1; vj <= 1; vj++) {
-                let ni = i + vi;
-                let nj = j + vj;
-                if ((vi !== 0 || vj !== 0) && ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                    if (matriz[ni][nj] === 1) {
-                        counter++;
-                    }
+                if (vi === 0 && vj === 0) continue;
+            
+                let ni = (i + vi + n) % n;
+                let nj = (j + vj + n) % n;
+    
+                if (matriz[ni][nj] === 1) {
+                    counter++;
                 }
             }
         }
